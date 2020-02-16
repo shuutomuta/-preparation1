@@ -1,0 +1,599 @@
+$widthPC: 1024px; //PC
+$widthTab: 768px; //タブレット
+$widthSp: 568px; //スマートフォン
+
+@mixin pc {
+  @media (min-width: ($widthTab)) {
+    @content;
+  }
+}
+@mixin sp {
+  @media (max-width: ($widthTab)) {
+    @content;
+  }
+}
+
+html {
+  overflow: auto;
+  background: url(../images/bg.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: repeat;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  &::before, &::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  box-sizing: border-box;
+  line-height: 1.5;
+  word-wrap: break-word;
+  overflow: hidden;
+  font-size: 62.5%;
+  color: #333;
+  letter-spacing: .2em;
+  min-width: 100%;
+  width: 100%;
+}
+
+img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  border: 0;
+  vertical-align: bottom;
+}
+
+a {
+  text-decoration: none;
+  color: #242424;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+
+  &:hover {
+    opacity: .5;
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+// 共通箇所
+
+.heading {
+  text-align: center;
+  margin: 30px 0 20px;
+  @include pc {
+    margin: 0 0 50px;
+    font-size: 1rem;
+    padding: 70px 0 0;
+  }
+}
+
+.content__area{
+  width: 90%;
+  margin: 0 auto 30px;
+  @include pc {
+    margin: 0 auto
+  }
+}
+
+.header {
+  height: 92vh;
+  background: url(../images/mv.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: repeat;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__content{
+    width: 80%;
+    margin: 0 auto;
+  }
+  &__logo{
+
+  }
+  &__desc{
+    font-size: 1.2rem;
+    padding: 0 0 20px;
+  }
+  &__txt{
+    font-size: 1rem;
+    padding: 0 0 20px;
+  }
+}
+
+.nav{
+  &__fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: 1000;
+    background: #fff;
+    width: 100%;
+    @include pc {
+      top: 0;
+      bottom: inherit;
+    }
+  }
+  &__list {
+    display: flex;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+  }
+  &__item {
+    width: 25%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 8vh;
+    a {
+      display: inline-block;
+      width: 100%;
+      font-size: .6rem;
+      @include pc {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+.feature{
+  margin: 0 auto;
+  &__area {
+    display: flex;
+    flex-wrap: wrap;
+    @include pc {
+      justify-content: space-between;
+    }
+  }
+  &__item {
+    width: 100%;
+    @include pc {
+      width: calc(100% / 3 - 3%);
+    }
+    &__heading {
+      font-size: 16px;
+      margin: 0 0 4%;
+    }
+    &__img {
+      margin: 0 0 5%;
+    }
+    &__txt {
+      font-size: 14px;
+      margin: 0 0 10%;
+    }
+    &__btn {
+      width: 180px;
+      margin: 0 auto;
+      background-color: aqua;
+      text-align: center;
+      border-radius: 30px;
+      a {
+        padding: 10px 0;
+        display: inline-block;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.greeting{
+  &__area {
+    display: flex;
+    flex-wrap: wrap;
+    @include pc {
+      justify-content: space-between;
+    }
+  }
+  &__txt{
+    width: 100%;
+    font-size: 1rem;
+    padding: 0 0 20px;
+    @include pc {
+      width: 65%;
+      padding: 0;
+    }
+  }
+  &__img {
+    width: 100%;
+    @include pc {
+      width: 30%;
+    }
+  }
+}
+
+.access{
+  &__area {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  &__txt{
+    width: 100%;
+    font-size: .9rem;
+    @include pc {
+      width: 100%;
+      padding: 2% 0 0 2%;
+    }
+  }
+  &__map {
+    width: 100%;
+    &__area {
+      @include pc {
+      width: 90%;
+      max-width: 900px;
+      }
+      img{
+        width: 100%;
+      }
+    }
+  }
+}
+
+.form {
+  width: 90%;
+  margin: 0 auto 50px;
+  @include pc {
+    width: 60%;
+    margin: 0 auto 80px;
+  }
+}
+
+.message {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-size: 20px;
+  text-align: center;
+  font-family: "Roboto Condensed", "Noto Sans JP", sans-serif;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+}
+
+.toplink {
+  width: 200px;
+  margin: 40px auto;
+  display: block;
+  font-size: 10px;
+  text-align: center;
+  font-family: "Roboto Condensed", "Noto Sans JP", sans-serif;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  padding: 1em 2em;
+  border-radius: 1em;
+  text-decoration: none;
+  background: #f8f6f2;
+  color: #000000;
+  border: solid 0.5px #e6dccf;
+}
+
+.form--button {
+  display: flex;
+  display: inline-block;
+  padding: 1em 2em;
+  text-decoration: none;
+  background: #f8f6f2;
+  color: #000000;
+  border: solid 0.5px #e6dccf;
+  width: 300px;
+  margin: auto;
+}
+
+.form--required{
+  padding: 5px 10px;
+  background: #CC0033;
+  color: #fff;
+  margin-left: 10px;
+}
+
+.form--list {
+  align-items: center;
+  margin-bottom: 25px;
+  font-size: 12px;
+}
+
+.form--label {
+  width: 100%;
+  padding: 0 0 2% 1%;
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+}
+
+.form--input, .form--text {
+  background: #f8f6f2;
+  font: 1em sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #e6dccf;
+  padding: 10px 5px;
+  outline: none;
+  text-indent: 0.01px;
+  text-overflow: '';
+  vertical-align: middle;
+  font-size: inherit;
+  color: inherit;
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+}
+
+.form--select {
+  outline: none;
+  -moz-appearance: none;
+  text-indent: 0.01px;
+  text-overflow: '';
+  background: none transparent;
+  vertical-align: middle;
+  font-size: 12px;
+  color: inherit;
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  height: 30px;
+  padding: 3px 12px;
+  border: 1px solid #e6dccf;
+  background: #f8f6f2;
+  border-radius: 5px;
+}
+
+.form--textarea {
+  background: #f8f6f2;
+  font: 1em sans-serif;
+  height: 100px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #e6dccf;
+  border-radius: 5px;
+  padding: 5px 5px;
+  outline: none;
+  text-indent: 0.01px;
+  text-overflow: '';
+  vertical-align: middle;
+  font-size: inherit;
+  color: inherit;
+  resize: none;
+}
+
+.select {
+  outline: none;
+  -moz-appearance: none;
+  text-indent: 0.01px;
+  text-overflow: '';
+  background: none transparent;
+  vertical-align: middle;
+  font-size: inherit;
+  color: inherit;
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  height: 30px;
+  padding: 3px 12px;
+  border: 1px solid #e6dccf;
+  background: #f8f6f2;
+  border-radius: 5px;
+}
+
+.textarea {
+  text-align: left;
+  height: 200px;
+}
+
+.back_white_wrap {
+  background-color: #FFF;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  box-shadow: 0px 0px 0px 0px #d1cdc7;
+  margin: 23px 0 0 0;
+  padding: 26px;
+  color: #444;
+  font-size: 13px;
+}
+
+.form--list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.form--radio--list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form--radio--txt {
+  padding: 0 19px;
+  font-size: 11px;
+}
+
+.form--radio--content {
+  margin: 5px 0px 20px 0;
+  li {
+    padding: 0px 10px 0px 0;
+  }
+  input[type="radio"] {
+    display: none;
+    &:checked + {
+      .form--label--seat {
+        background: #9e9eff;
+        color: #FFF;
+      }
+      .form--label--course1 {
+        background: #ffc489;
+        color: #FFF;
+      }
+      .form--label--course2 {
+        background: #e6dccf;
+        color: #FFF;
+      }
+    }
+  }
+
+  label {
+    color: #444;
+    border: 1px solid #E6DCCF;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 19px;
+    cursor: pointer;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+  }
+}
+
+.form--radio--reserve label {
+  margin: 0 0 10px;
+}
+
+
+/* フッター　START */
+.footer{
+  background: #333;
+  color: #fff;
+  padding: 0 0 70px;
+  text-align: center;
+  font-size: 0.8rem;
+  @include pc {
+    padding: 0 0 30px;
+    font-size: 1rem;
+  }
+  &__container{
+    width: 90%;
+    margin: 0 auto;
+    padding: 40px 0 10px;
+    @include pc {
+      padding: 60px 0 10px;
+    }
+  }
+  &__tel{
+    padding: 0 0 2%;
+  }
+  &__address{
+    padding: 0 0 2%;
+  }
+  &__time{
+    padding: 0 0 2%;
+    margin: auto;
+  }
+  &__copy{
+
+  }
+}
+
+/* フッター　END */
+
+
+/* revealContentを最初は消しておく */
+.revealContent {
+  opacity: 0;
+}
+
+/* revealActiveクラスが追加されて.3s後に表示する */
+.revealActive .revealContent {
+  -webkit-transition-delay: .3s;
+       -o-transition-delay: .3s;
+          transition-delay: .3s;
+  opacity: 1;
+}
+
+.revealItem {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  /* display: block;
+  position: absolute; */
+  overflow: hidden;
+}
+
+/* before擬似要素の黒いblockにanimationをつけておく */
+.revealItem.revealActive::before {
+  -webkit-animation: hideFromLeft .3s forwards, showFromLeft .3s forwards .3s;
+          animation: hideFromLeft .3s forwards, showFromLeft .3s forwards .3s;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  margin: 1px;
+}
+
+/* before擬似要素を左から右にスライドイン */
+@-webkit-keyframes hideFromLeft {
+  0% {
+      transform: translateX(-100%);
+  }
+  100% {
+      transform: translateX(0%);
+  }
+}
+@keyframes hideFromLeft {
+  0% {
+      transform: translateX(-100%);
+  }
+  100% {
+      transform: translateX(0%);
+  }
+}
+
+/* before擬似要素を左から右にスライドアウト */
+@-webkit-keyframes showFromLeft {
+  0% {
+      -webkit-transform: translateX(0%);
+              transform: translateX(0%);
+  }
+  100% {
+      -webkit-transform: translateX(100%);
+              transform: translateX(100%);
+  }
+}
+
+@keyframes showFromLeft {
+  0% {
+      -webkit-transform: translateX(0%);
+              transform: translateX(0%);
+  }
+  100% {
+      -webkit-transform: translateX(100%);
+              transform: translateX(100%);
+  }
+}
+
+/* 画像を使うときはvertical-align bottomをしないと下に余白ができてしまうので注意！！ */
+.revealImg {
+  width: 300px;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  vertical-align: bottom;
+}
